@@ -19,7 +19,7 @@
 
 ## Observations and Results
 
-### RNN (rnn_simple.py)
+### RNN (model_rnn_simple.py)
 Goal: Sequence model predicting, for each tick, the probability that price exceeds entry by >2% at that tick.
 
 Output:
@@ -67,7 +67,7 @@ Observations:
 - Test accuracy around ~61%; average confidence relatively low.
 
 
-### CNN (cnn.py)
+### CNN (model_cnn.py)
 Goal: Given an initial window and metadata, predict whether price rises by TARGET_GAIN and holds for MIN_HOLD_TICKS after the window.
 
 Output:
@@ -100,7 +100,7 @@ Observations:
 - Score range is narrow (max ~0.66), suggesting cautious predictions.
 
 
-### MLP (mlp.py)
+### MLP (model_mlp.py)
 Goal: Same as CNN- predict sustained TARGET_GAIN after the observation window using only the initial window and metadata.
 
 Output:
@@ -133,7 +133,7 @@ Observations:
 - Early stopping at epoch 11; faster training than sequence models.
 
 
-### Random Forest (random_forest.py)
+### Random Forest (model_random_forest.py)
 Goal: Using LOOKBACK_TICKS, momentum, and metadata, classify if perc_change_from_entry will increase over the next FORECAST_HORIZON ticks.
 
 Output:
