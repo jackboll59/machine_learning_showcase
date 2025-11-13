@@ -43,7 +43,7 @@ PRICE_COLUMNS = {
     'perc_change_from_entry': 3
 }
 
-META_FEATURES = ['liq', 'mcap', 'vol', 'm5', 'h1', 'h6', 'h24']  # numeric columns
+META_FEATURES = ['liq', 'mcap', 'vol', 'm5', 'h1', 'h6', 'h24']
 
 def load_metadata(tracking_filename: str) -> Dict[str, List[float]]:
     metadata = {}
@@ -125,7 +125,6 @@ def _generate_samples_from_watch_data(watch_data: Dict[str, List[float]], metada
             current_value = price_changes[i]
             future_value = price_changes[i + FORECAST_HORIZON]
 
-            # Determine if price will increase over the next n ticks
             target = 1 if future_value > current_value else 0
             features = np.concatenate([past_ticks, [momentum], meta_features])
             yield (features, target)
