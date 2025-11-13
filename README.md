@@ -8,9 +8,9 @@
 ## File structure
 
 - `main.py`: Orchestrates running all models and prints a final summary.
-- `model_cnn.py`: CNN model that predicts if price will rise by TARGET_GAIN and hold for MIN_HOLD_TICKS after an initial window. Returns metrics in a dict and prints results.
-- `model_mlp.py`: MLP model with same goal as CNN. Returns metrics in a dict and prints results.
-- `model_random_forest.py`: Random Forest model with same goal at CNN using windowed price changes and metadata. Returns metrics in a dict and prints results and feature importance.
+- `model_cnn.py`: CNN model that predicts if price will rise by TARGET_GAIN (5%) and hold for MIN_HOLD_TICKS (10) after an initial window (240). Returns metrics in a dict and prints results.
+- `model_mlp.py`: MLP model with the same goal as CNN. Returns metrics in a dict and prints results.
+- `model_random_forest.py`: Random Forest model predicting binary price movement up or down using windowed price changes and metadata (LOOKBACK_TICKS=30, FORECAST_HORIZON=10). Returns metrics in a dict and prints results and feature importance.
 - `model_rnn_simple.py`: Runs precompute first, then trains an RNN to predict per-tick probability (>2% over entry). Returns metrics in a dict and prints results.
 - `data/watch_tracking.csv`: Session-level metadata per `watch_id` (10-minute chunks).
 - `data/price_history.csv`: Tick-level prices aligned to `watch_id`.

@@ -56,7 +56,6 @@ def load_metadata(tracking_filename: str) -> Dict[str, List[float]]:
                     watch_id = row[TRACKING_COLUMNS['watch_id']].strip()
                     meta_values = [float(row[TRACKING_COLUMNS[f]]) if row[TRACKING_COLUMNS[f]] else 0.0 for f in META_FEATURES]
 
-                    # Extract calendar features from watch_start_time
                     ts_raw = row[TRACKING_COLUMNS['watch_start_time']].strip()
                     try:
                         ts_int = int(float(ts_raw))
