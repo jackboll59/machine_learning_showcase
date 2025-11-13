@@ -176,8 +176,14 @@ def train_model():
 
 
 def main():
-    train_model()
-
+    try:
+        train_model()
+        print("Model training completed successfully.")
+    except KeyboardInterrupt:
+        print("Training interrupted.")
+    except Exception as e:
+        print(f"Error during training: {str(e)}")
+        raise
 
 if __name__ == "__main__":
     main()

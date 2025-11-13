@@ -233,7 +233,7 @@ def train_model():
 
 def main():
     try:
-        model = train_model()
+        train_model()
         print("Model training completed successfully.")
     except KeyboardInterrupt:
         print("Training interrupted.")
