@@ -1,0 +1,213 @@
+Output from running main.py:
+
+# Running models (2025-11-12 18:00:42)
+
+## MLP (mlp.py)
+Goal: Training goal: Given an initial window of perc_change_from_entry and metadata,
+Epoch 1 - Validation loss: 0.7087
+Epoch 2 - Validation loss: 0.7177
+Epoch 3 - Validation loss: 0.7257
+Epoch 4 - Validation loss: 0.7332
+Epoch 5 - Validation loss: 0.7372
+Epoch 6 - Validation loss: 0.7402
+Epoch 7 - Validation loss: 0.7388
+Epoch 8 - Validation loss: 0.7332
+Epoch 9 - Validation loss: 0.7278
+Epoch 10 - Validation loss: 0.7265
+Epoch 11 - Validation loss: 0.7271
+Early stopping triggered
+Accuracy: 0.6333
+              precision    recall  f1-score   support
+
+         0.0     0.8148    0.3056    0.4444        72
+         1.0     0.5935    0.9359    0.7264        78
+
+    accuracy                         0.6333       150
+   macro avg     0.7042    0.6207    0.5854       150
+weighted avg     0.6997    0.6333    0.5910       150
+
+Probability stats - mean: 0.5556, min: 0.4781, max: 0.9044
+Average Precision Score: 0.6758
+ROC AUC Score: 0.6859
+PR AUC Score: 0.6710
+
+Correct Predictions: 95 / 150 (63.3%)
+Model saved to mlp_model.pt
+
+## Random Forest (random_forest.py)
+Goal: Training goal: Using last LOOKBACK_TICKS of perc_change_from_entry plus momentum
+Random Forest Classification Model
+Lookback ticks: 30
+Forecast horizon: 10
+Meta features: ['liq', 'mcap', 'vol', 'm5', 'h1', 'h6', 'h24']
+Splitting data...
+Training set: 421,196 samples
+Test set: 105,300 samples
+
+Training Random Forest classifier...
+Model training complete.
+Evaluating model...
+Model performance
+Accuracy: 0.6271
+Classification report:
+              precision    recall  f1-score   support
+
+           0     0.7801    0.5224    0.6258     62846
+           1     0.5252    0.7820    0.6284     42454
+
+    accuracy                         0.6271    105300
+   macro avg     0.6527    0.6522    0.6271    105300
+weighted avg     0.6773    0.6271    0.6268    105300
+
+Probability stats - mean: 0.4903, min: 0.0000, max: 0.8621
+Average Precision Score: 0.6084
+ROC AUC Score: 0.7136
+PR AUC Score: 0.6084
+Feature importance
+tick_1         : 0.0159
+tick_2         : 0.0133
+tick_3         : 0.0129
+tick_4         : 0.0110
+tick_5         : 0.0104
+tick_6         : 0.0106
+tick_7         : 0.0103
+tick_8         : 0.0105
+tick_9         : 0.0097
+tick_10        : 0.0100
+tick_11        : 0.0092
+tick_12        : 0.0133
+tick_13        : 0.0120
+tick_14        : 0.0173
+tick_15        : 0.0133
+tick_16        : 0.0140
+tick_17        : 0.0153
+tick_18        : 0.0105
+tick_19        : 0.0106
+tick_20        : 0.0134
+tick_21        : 0.0141
+tick_22        : 0.0157
+tick_23        : 0.0144
+tick_24        : 0.0132
+tick_25        : 0.0102
+tick_26        : 0.0187
+tick_27        : 0.0189
+tick_28        : 0.0207
+tick_29        : 0.0265
+tick_30        : 0.0349
+momentum       : 0.0968
+liq            : 0.0415
+mcap           : 0.0360
+vol            : 0.0446
+m5             : 0.0601
+h1             : 0.1725
+h6             : 0.0390
+h24            : 0.0496
+day_of_week    : 0.0114
+hour_of_day    : 0.0181
+
+## CNN (cnn.py)
+Goal: Training goal: Given an initial window of perc_change_from_entry and metadata,
+Epoch 1 - Validation loss: 0.1715
+Epoch 2 - Validation loss: 0.1694
+Epoch 3 - Validation loss: 0.1678
+Epoch 4 - Validation loss: 0.1661
+Epoch 5 - Validation loss: 0.1645
+Epoch 6 - Validation loss: 0.1633
+Epoch 7 - Validation loss: 0.1623
+Epoch 8 - Validation loss: 0.1616
+Epoch 9 - Validation loss: 0.1606
+Epoch 10 - Validation loss: 0.1598
+Epoch 11 - Validation loss: 0.1594
+Epoch 12 - Validation loss: 0.1590
+Epoch 13 - Validation loss: 0.1586
+Epoch 14 - Validation loss: 0.1586
+Epoch 15 - Validation loss: 0.1586
+Epoch 16 - Validation loss: 0.1586
+Epoch 17 - Validation loss: 0.1586
+Epoch 18 - Validation loss: 0.1586
+Epoch 19 - Validation loss: 0.1586
+Epoch 20 - Validation loss: 0.1586
+Epoch 21 - Validation loss: 0.1586
+Epoch 22 - Validation loss: 0.1588
+Epoch 23 - Validation loss: 0.1586
+Epoch 24 - Validation loss: 0.1591
+Epoch 25 - Validation loss: 0.1572
+Epoch 26 - Validation loss: 0.1557
+Epoch 27 - Validation loss: 0.1557
+Epoch 28 - Validation loss: 0.1547
+Epoch 29 - Validation loss: 0.1556
+Epoch 30 - Validation loss: 0.1560
+Epoch 31 - Validation loss: 0.1555
+Epoch 32 - Validation loss: 0.1557
+Epoch 33 - Validation loss: 0.1563
+Epoch 34 - Validation loss: 0.1564
+Epoch 35 - Validation loss: 0.1561
+Epoch 36 - Validation loss: 0.1557
+Epoch 37 - Validation loss: 0.1554
+Epoch 38 - Validation loss: 0.1553
+Early stopping triggered
+Accuracy: 0.5350
+              precision    recall  f1-score   support
+
+         0.0     0.5197    0.7980    0.6295        99
+         1.0     0.5833    0.2772    0.3758       101
+
+    accuracy                         0.5350       200
+   macro avg     0.5515    0.5376    0.5027       200
+weighted avg     0.5519    0.5350    0.5014       200
+
+Probability stats - mean: 0.5026, min: 0.0353, max: 0.6578
+Average Precision Score: 0.6142
+ROC AUC Score: 0.6735
+PR AUC Score: 0.6073
+
+Correct Predictions: 107 / 200 (53.5%)
+Model saved to cnn_model.pt
+
+## RNN Precompute (rnn_precompute.py)
+Goal: Precompute goal: Build per-session sequences with indicators and labels.
+Saved 1000 sessions.
+Precomputed sessions: 1000
+
+## RNN (rnn_simple.py)
+Goal: Training goal: Sequence model that predicts, for each tick in a session,
+Label distribution: {0.0: 361183, 1.0: 205725}
+Pos weight: 1.755659253858306
+Epoch 1: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:48<00:00,  4.74it/s] 
+Epoch 1, Total Loss: 738.9106, Train Accuracy: 61.47%
+Epoch 2: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:49<00:00,  4.71it/s] 
+Epoch 2, Total Loss: 745.2935, Train Accuracy: 63.21%
+Epoch 3: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:46<00:00,  4.82it/s] 
+Epoch 3, Total Loss: 735.2894, Train Accuracy: 60.33%
+Epoch 4: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:46<00:00,  4.82it/s] 
+Epoch 4, Total Loss: 748.9702, Train Accuracy: 59.83%
+Epoch 5: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:47<00:00,  4.79it/s] 
+Epoch 5, Total Loss: 742.8773, Train Accuracy: 60.80%
+Epoch 6: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:46<00:00,  4.81it/s] 
+Epoch 6, Total Loss: 741.8876, Train Accuracy: 61.07%
+Epoch 7: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:46<00:00,  4.81it/s] 
+Epoch 7, Total Loss: 742.9634, Train Accuracy: 60.62%
+Epoch 8: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:46<00:00,  4.81it/s] 
+Epoch 8, Total Loss: 747.5509, Train Accuracy: 61.59%
+Epoch 9: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:53<00:00,  4.61it/s] 
+Epoch 9, Total Loss: 741.4581, Train Accuracy: 60.28%
+Epoch 10: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:55<00:00,  4.56it/s] 
+Epoch 10, Total Loss: 750.4083, Train Accuracy: 61.73%
+Epoch 11: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:56<00:00,  4.53it/s] 
+Epoch 11, Total Loss: 741.9005, Train Accuracy: 59.46%
+Epoch 12: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:55<00:00,  4.56it/s] 
+Epoch 12, Total Loss: 742.0651, Train Accuracy: 60.52%
+Epoch 13: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:56<00:00,  4.53it/s] 
+Epoch 13, Total Loss: 738.3547, Train Accuracy: 60.64%
+Epoch 14: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:57<00:00,  4.52it/s] 
+Epoch 14, Total Loss: 741.5167, Train Accuracy: 60.60%
+Epoch 15: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████| 800/800 [02:55<00:00,  4.57it/s] 
+Epoch 15, Total Loss: 750.0752, Train Accuracy: 61.64%
+Test Accuracy: 58.21%
+Average predicted confidence (sigmoid output): 0.4142
+
+==== Final Summary ====
+ - MLP | Acc 0.6333 | AP 0.6758 | ROC AUC 0.6859 | PR AUC 0.6710 | Correct 95/150 (63.3%) | P(mean/min/max) 0.5556/0.4781/0.9044
+ - RandomForest | Acc 0.6271 | AP 0.6084 | ROC AUC 0.7136 | PR AUC 0.6084 | Correct 66033/105300 (62.7%) | P(mean/min/max) 0.4903/0.0000/0.8621
+ - CNN | Acc 0.5350 | AP 0.6142 | ROC AUC 0.6735 | PR AUC 0.6073 | Correct 107/200 (53.5%) | P(mean/min/max) 0.5026/0.0353/0.6578
+ - RNN | Acc 0.5821 | Correct 65957/113301 (58.2%)
