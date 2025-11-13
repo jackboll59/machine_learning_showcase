@@ -18,19 +18,19 @@ from sklearn.metrics import roc_curve, auc
 TRACKING_FILE = "data/watch_tracking.csv"
 PRICE_HISTORY_FILE = "data/price_history.csv"
 
-INITIAL_WINDOW_TICKS = 240  # 4 minutes if 1 tick = 1 sec
+INITIAL_WINDOW_TICKS = 240  # 4 minutes
 MIN_HOLD_TICKS = 10  # 10 seconds of sustained gain
 TARGET_GAIN = 5.0
 META_FEATURES = ['liq', 'mcap', 'vol', 'm5', 'h1', 'h6', 'h24']
 BATCH_SIZE = 512
 EPOCHS = 100
 PATIENCE = 10
-GAMMA = 2.0  # focal-loss gamma
+GAMMA = 2.0
 LR = 0.001
 DROP_RATE = 0.3
 FILTERS1, FILTERS2 = 32, 64
 WEIGHT_DECAY = 0.0
-KERNEL_SIZE = 5       # kernel size used in conv layers & residual blocks
+KERNEL_SIZE = 5
 
 TRACKING_COLUMNS = {
     'perc_change': 0, 'high_perc': 1, 'low_perc': 2, 'age': 3, 'liq': 4, 'mcap': 5,
@@ -135,7 +135,7 @@ class SelfAttention(nn.Module):
         scores = torch.matmul(q, k.transpose(-2, -1)) * self.scale
         attn = torch.softmax(scores, dim=-1)
         out = torch.matmul(attn, v)
-        return out.mean(dim=1)  # Reduce to (batch, dim)
+        return out.mean(dim=1)
 
 class CNNWithAttention(nn.Module):
     def __init__(self, seq_len, meta_dim):
@@ -159,7 +159,7 @@ class CNNWithAttention(nn.Module):
             nn.Dropout(DROP_RATE),
             nn.Linear(128, 64),
             nn.ReLU(),
-            nn.Linear(64, 1)  # logits output, sigmoid applied later as needed
+            nn.Linear(64, 1)
         )
 
     def forward(self, x_seq, x_meta):
